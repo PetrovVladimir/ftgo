@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: order-service
+  jpa:
+    hibernate:
+      ddl-auto: none
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: postgres
+
+eventuatelocal:
+  kafka:
+    bootstrap:
+      servers: http://localhost:9092
+  zookeeper:
+    connection:
+      string: http://localhost:2181
+
+eventuate:
+  database:
+    schema: none
+
+server:
+  servlet:
+    context-path: /order/
+  port: 8080
+
+logging:
+  level:
+    org:
+      springframework:
+        orm:
+          jpa: INFO
+      hibernate:
+        SQL: DEBUG
+    io:
+      eventuate: DEBUG
+      tram: DEBUG
